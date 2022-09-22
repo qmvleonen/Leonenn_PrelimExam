@@ -1,0 +1,18 @@
+---
+-  hosts: all
+   become: true
+   gather_facts: false
+   tasks:
+
+   - name: install Python3-pip
+     apt:
+       name: Python3-pip
+
+   - name: install java using ansible
+     become: yes
+     apt:
+      name: "{{package}}"
+      state: present
+     vars:
+      packages:
+        - openjdk-11-jdk
